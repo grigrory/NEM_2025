@@ -9,7 +9,7 @@ library("ggstats")
 library("ggsci")
 
 #Cargar archivo ----
-control <- read_csv ("control.csv")
+control <- read.csv ("control.csv")
 
 #ORDENAR LOS VALORES DE RESPUESTA DE LAS SECCIONES: APROPIA, FLEXIBLE,ARTICULA, CONTEXTO, IMPLEMENTA----
 control <- control %>%
