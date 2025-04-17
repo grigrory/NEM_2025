@@ -19,44 +19,35 @@ control <- control %>%
       implementa17:implementa20),
     ~ fct_relevel(., "si", "no")))
 
-#Gráfico apropia----
+# Función para generar gráficos de forma compacta
+graficar_subdimension <- function(data, vars, titulo, num_grafico) {
+  gglikert(data, include = {{vars}}) +
+    scale_fill_jco() +
+    theme_classic() +
+    ggtitle(paste("Gráfico", num_grafico, "\nSubdimensión", titulo)) +
+    theme(legend.position = "bottom")
+}
 
-gglikert(control, include = apropia1:apropia3)+
-  scale_fill_jco ( ) +
-  theme_classic()+
-  ggtitle("Gráfico 1.Subdimensión apropiación")+
-  theme(legend.position = "bottom")
+# Generar todos los gráficos
+graficar_subdimension(control, apropia1:apropia3, "apropiación", 1)
+graficar_subdimension(control, contexto4:contexto7, "contexto", 2)
+graficar_subdimension(control, articula8:articula14, "articulación", 3)
+graficar_subdimension(control, flexible15:flexible16, "flexibilidad", 4)
+graficar_subdimension(control, implementa17:implementa20, "implementación", 5)
 
-#Gráfico contexto ----
-gglikert (control,
-          include = contexto4:contexto7)+
-  scale_fill_jco()+
-  theme_classic()+
-  ggtitle("Gráfico 2.
-Subdimensión contexto")+
-  theme(legend.position = "bottom")
 
-#Gráfico articula----
-gglikert(control, include = articula8:articula14)+
-  scale_fill_jco()+
-  theme_classic()+
-  ggtitle("Gráfico 3.
-subdimensión articulación")+
-  theme(legend.position = "bottom")
 
-#Gráfico flexible----
 
-gglikert(control, include = flexible15:flexible16)+
-  scale_fill_jco()+
-  theme_classic()+
-  ggtitle("Gráfico 4.
-Subdimensión flexibilidad")+
-  theme(legend.position = "bottom")
 
-#Gráfico implementa----
-gglikert(control, include = implementa17:implementa20)+
-  scale_fill_jco() +
-  theme_classic()+
-  ggtitle("Gráfico 5.
-Subdimensión implementación")+
-  theme(legend.position = "bottom")
+
+
+
+
+
+
+
+
+
+
+
+
