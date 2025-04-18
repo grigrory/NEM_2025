@@ -1,13 +1,10 @@
 #Cargar librerias ----
 library("gtsummary")
-library("readxl")
 library("bstfun")
 library("ggstatsplot")
-library("report")
 library("tidyverse")
 library("ggstats")
 library("ggsci")
-library(magrittr)
 #Cargar archivo ----
 library(readr)
 control <- read_csv("control.csv")
@@ -18,7 +15,7 @@ control <- control %>%
     c(apropia1:apropia3, contexto4:contexto7,
       articula8:articula14, flexible15:flexible16,
       implementa17:implementa20),
-    ~ fct_relevel(., "si", "no")))
+    ~ fct_relevel(., "no", "si")))
 
 # Función para generar gráficos de forma compacta
 graficar_subdimension <- function(data, vars, titulo, num_grafico) {
@@ -35,20 +32,3 @@ graficar_subdimension(control, contexto4:contexto7, "contexto", 2)
 graficar_subdimension(control, articula8:articula14, "articulación", 3)
 graficar_subdimension(control, flexible15:flexible16, "flexibilidad", 4)
 graficar_subdimension(control, implementa17:implementa20, "implementación", 5)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
