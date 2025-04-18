@@ -7,9 +7,10 @@ library("report")
 library("tidyverse")
 library("ggstats")
 library("ggsci")
-
+library(magrittr)
 #Cargar archivo ----
-control <- read.csv ("control.csv")
+library(readr)
+control <- read_csv("control.csv")
 
 #ORDENAR LOS VALORES DE RESPUESTA DE LAS SECCIONES: APROPIA, FLEXIBLE,ARTICULA, CONTEXTO, IMPLEMENTA----
 control <- control %>%
